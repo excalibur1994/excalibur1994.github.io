@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>Spring实战第四版</title>
+      <link href="/2018/05/12/Spring%E5%AE%9E%E6%88%98%E7%AC%AC%E5%9B%9B%E7%89%88/"/>
+      <url>/2018/05/12/Spring%E5%AE%9E%E6%88%98%E7%AC%AC%E5%9B%9B%E7%89%88/</url>
+      <content type="html"><![CDATA[<p><img src="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1526290577726.jpg" alt=""></p><p>写这篇博客是因为发现虽然平时工作中经常和Spring打交道。但是重复的造车轮工作并没有帮助我更好的去理解它，所以开始研究《Spring实战第四版》这本书，以便对Spring进行更近一步的学习。</p><a id="more"></a><h2 id="Spring基本理念"><a href="#Spring基本理念" class="headerlink" title="Spring基本理念"></a>Spring基本理念</h2><p>Spring最基本的理念就是简化代码开发，再抛开一切外壳之后，最终的基本策略都会回归到以下四点</p><ol><li>基于POJO的轻量级和最新侵入性编程</li><li>通过依赖注入和面向接口实现松耦合</li><li>基于切面和惯例进行声明式编程</li><li>通过切面和模板减少样板时代码</li></ol><h2 id="DI（依赖注入）"><a href="#DI（依赖注入）" class="headerlink" title="DI（依赖注入）"></a>DI（依赖注入）</h2><p>我觉得可以从三个问题来理解一下DI</p><ol><li>什么是DI？</li><li>DI能够做什么？</li><li>它是如何做到的？</li></ol><p>对于第一第二个问题，比较理论化一点，简单描述一下：DI发展到如今，已经变成了一种编程技巧和程序设计理念，它能够极大的降低程序的耦合性，还可以使代码的测试变得简单。</p><p>（关于耦合：这是一个具有两面性的东西，过高的耦合性会使代码难于测试，理解以及复用，同时可能会出现连锁式的BUG，修复好一个，又出现一个或多个新BUG，但完全没有耦合性的代码也没啥用，    想要完成有实际意义的功能，代码之间必须有适当的交互过程）</p><p>至于对于第三个问题可能是需要重点关注的，首先定一个大的基调：依赖注入能够降低高耦合性的问题是因为<font color="red">它不再让调用者来主动创建被调用者的实例，而是将其交给Spring来执行</font></p><h2 id="AOP-面向切面编程"><a href="#AOP-面向切面编程" class="headerlink" title="AOP(面向切面编程)"></a>AOP(面向切面编程)</h2><p>##</p><hr>]]></content>
+      
+      <categories>
+          
+          <category> Spring </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spring </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>简单写点东西撑撑首页</title>
+      <link href="/2018/05/11/%E7%AE%80%E5%8D%95%E5%86%99%E7%82%B9%E4%B8%9C%E8%A5%BF%E6%92%91%E6%92%91%E9%A6%96%E9%A1%B5/"/>
+      <url>/2018/05/11/%E7%AE%80%E5%8D%95%E5%86%99%E7%82%B9%E4%B8%9C%E8%A5%BF%E6%92%91%E6%92%91%E9%A6%96%E9%A1%B5/</url>
+      <content type="html"><![CDATA[<h3 id="来自博主的碎碎念"><a href="#来自博主的碎碎念" class="headerlink" title="来自博主的碎碎念"></a><center>来自博主的碎碎念<center></center></center></h3><a id="more"></a><blockquote class="blockquote-center"><p>嗯，闲鱼玩家终于也有的自己的博客了</p><p>激动ING</p><p>虽然布局很一般，但是会慢慢优化的（才怪）</p><p>毕竟博主是一个专业的前端工程师（手动滑稽）</p><p>CSS什么的根本不（wan）在（quan）话（bu）下（dong）</p><p>凭借我出色的审美</p><p>一定<del>不</del>会好好考虑如何搭配颜色，合理布局的</p><p>相信假以时日这个博客必定能够红红火火恍恍惚惚哈哈哈哈</p><hr><p>来自没有良心的博主(大英雄，你np满了)</p></blockquote>]]></content>
+      
+      <categories>
+          
+          <category> 即兴乱写 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> BB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
+</search>
