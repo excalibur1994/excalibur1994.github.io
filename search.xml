@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>Spring零碎知识收集</title>
+      <link href="/2018/05/16/Spring%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E6%94%B6%E9%9B%86/"/>
+      <url>/2018/05/16/Spring%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E6%94%B6%E9%9B%86/</url>
+      <content type="html"><![CDATA[<p>这篇博客主要是对《Spring实战》以及日常工作时发现的一些有关Spring的零碎知识进行收集</p><a id="more"></a><ul><li>@DateTimeFormat<ul><li>这个注解一般用在实体类的Date类型属性上，它可以将页面传递来的String类型日期转换为Date类型，但在4.0之前强依赖于joda-time.jar    ，必须要引入这个包才可以使用，4.0之后不再强依赖于这个jar包。</li></ul></li><li>&lt;%@ taglib uri=”<a href="http://java.sun.com/jsp/jstl/fmt&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/fmt&quot;</a> prefix=”fmt” %&gt;<ul><li>这是一个jstl标签，其中有很多格式化的方法，比如格式化日期，数字等等，此处只做一个简单的记录，有需求可以直接百度，食用度不难</li></ul></li><li>@Configuration <ul><li>这个注解相当于xml中的<beans>标签，可以表明这个类是一个配置类，在SpringBoot中可能会用的比较多，而且在SpringBoot中不用开启注解扫描也可以直接使用。</beans></li></ul></li><li>@ComponentScan<ul><li>这个注解会开启注解扫描，属性值value相当于base-package</li></ul></li><li>Component<ul><li>和@Controller，@Service这些用法一样，用于实体类上    </li></ul></li></ul><hr>]]></content>
+      
+      <categories>
+          
+          <category> Spring </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spring </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Spring实战第四版</title>
       <link href="/2018/05/12/Spring%E5%AE%9E%E6%88%98%E7%AC%AC%E5%9B%9B%E7%89%88/"/>
       <url>/2018/05/12/Spring%E5%AE%9E%E6%88%98%E7%AC%AC%E5%9B%9B%E7%89%88/</url>
