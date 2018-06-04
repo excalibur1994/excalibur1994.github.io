@@ -88,7 +88,7 @@
 <meta property="og:description" content="写这篇博客是因为发现虽然平时工作中经常和Spring打交道。但是重复的造车轮工作并没有帮助我更好的去理解它，所以开始研究《Spring实战第四版》这本书，以便对Spring进行更近一步的学习。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1526290577726.jpg">
-<meta property="og:updated_time" content="2018-05-16T14:33:39.504Z">
+<meta property="og:updated_time" content="2018-06-03T07:39:59.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring实战第四版">
 <meta name="twitter:description" content="写这篇博客是因为发现虽然平时工作中经常和Spring打交道。但是重复的造车轮工作并没有帮助我更好的去理解它，所以开始研究《Spring实战第四版》这本书，以便对Spring进行更近一步的学习。">
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  483
+                  1,042
                 </span>
               
 
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -450,10 +450,10 @@
 <a id="more"></a>
 <h2 id="Spring基本理念"><a href="#Spring基本理念" class="headerlink" title="Spring基本理念"></a>Spring基本理念</h2><p>Spring最基本的理念就是简化代码开发，再抛开一切外壳之后，最终的基本策略都会回归到以下四点</p>
 <ol>
-<li>基于POJO的轻量级和最新侵入性编程</li>
+<li>基于POJO的轻量级和最小侵入性编程</li>
 <li>通过依赖注入和面向接口实现松耦合</li>
 <li>基于切面和惯例进行声明式编程</li>
-<li>通过切面和模板减少样板时代码</li>
+<li>通过切面和模板减少样板式代码</li>
 </ol>
 <h2 id="DI（依赖注入）"><a href="#DI（依赖注入）" class="headerlink" title="DI（依赖注入）"></a>DI（依赖注入）</h2><p>我觉得可以从三个问题来理解一下DI</p>
 <ol>
@@ -464,7 +464,21 @@
 <p>对于第一第二个问题，比较理论化一点，简单描述一下：DI发展到如今，已经变成了一种编程技巧和程序设计理念，它能够极大的降低程序的耦合性，还可以使代码的测试变得简单。</p>
 <p>（关于耦合：这是一个具有两面性的东西，过高的耦合性会使代码难于测试，理解以及复用，同时可能会出现连锁式的BUG，修复好一个，又出现一个或多个新BUG，但完全没有耦合性的代码也没啥用，    想要完成有实际意义的功能，代码之间必须有适当的交互过程）</p>
 <p>至于对于第三个问题可能是需要重点关注的，首先定一个大的基调：依赖注入能够降低高耦合性的问题是因为<font color="red">它不再让调用者来主动创建被调用者的实例，而是将其交给Spring来执行</font></p>
-<h2 id="AOP-面向切面编程"><a href="#AOP-面向切面编程" class="headerlink" title="AOP(面向切面编程)"></a>AOP(面向切面编程)</h2><p>##</p>
+<h2 id="AOP-面向切面编程"><a href="#AOP-面向切面编程" class="headerlink" title="AOP(面向切面编程)"></a>AOP(面向切面编程)</h2><p>在软件开发中，同一个功能如果散布于应用中多处，我们可以称其为横切关注点。从概念上来说我们应该将其与业务逻辑分离（但是往往会直接嵌入到业务逻辑之中）。AOP要做的就是把这些横切关注点与业务逻辑相分离。</p>
+<p>DI能够实现应用对象之间的解耦，而AOP可以实现横切关注点与它们所影响的对象之间的解耦</p>
+<p>关于AOP术语的理解：通知包含了用于多个应用对象的横切行为，连接点是程序中可以应用通知的所有点，切点定义了通知被应用的具体位置（也可以理解为切点定义了哪些连接点会得到通知），切点与通知的结合称为切面，将切面应用到目标对象并创建新的代理对象叫做织入，在目标对像的生命周期里有多个点可以进行织入</p>
+<ol>
+<li>编译期：切面在目标类编译时被织入。这种方式需要特殊的编译器。AspectJ的织入编译器就是以这种方式织入切面的。</li>
+<li>类加载期：切面在目标类加载到JVM时被织入。这种方式需要特殊的类加载器，它可以在目标类被引入引用之前增强该目标类的字节码。AspectJ 5的加载时织入就支持以这种方式织入切面</li>
+<li>运行期：切面在应用运行的某个时刻被织入。一般情况下，在织入切面时，AOP容器会为目标对象动态的创建一个代理对象。Spring AOP就是以这种方式织入切面的</li>
+</ol>
+<p>关于Spring AOP框架的一些关键知识</p>
+<ol>
+<li>Spring的通知是由Java编写的</li>
+<li>Spring在运行时通知对象：代理类封装了目标类，并拦截被通知方法的调用，再把调用转发给真正的目标bean，当代理拦截到方法调用时，在调用目标bean的方法之前，会执行切面逻辑。</li>
+<li>Spring只支持方法级别的连接点</li>
+</ol>
+<p>##</p>
 <hr>
       
     </div>
@@ -505,7 +519,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/16/Spring零碎知识收集/" rel="prev" title="Spring零碎知识收集">
+              <a href="/2018/05/23/Spring零碎知识收集/" rel="prev" title="Spring零碎知识收集">
                 Spring零碎知识收集 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -708,7 +722,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.3k</span>
+    <span title="Site words total count">3.4k</span>
   
 </div>
 
