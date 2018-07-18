@@ -81,8 +81,8 @@
 
 <meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot">
-<meta property="og:url" content="http://yoursite.com/2018/06/06/SpringBoot/index.html">
+<meta property="og:title" content="SpringBoot（一）：项目构建">
+<meta property="og:url" content="http://yoursite.com/2018/06/06/SpringBoot（一）：项目构建/index.html">
 <meta property="og:site_name" content="J.O.E">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1528342168360.jpg">
@@ -90,9 +90,9 @@
 <meta property="og:image" content="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1528540718663.png">
 <meta property="og:image" content="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1528540718882.png">
 <meta property="og:image" content="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1528540719069.png">
-<meta property="og:updated_time" content="2018-06-30T06:55:58.555Z">
+<meta property="og:updated_time" content="2018-07-18T07:09:43.762Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot">
+<meta name="twitter:title" content="SpringBoot（一）：项目构建">
 <meta name="twitter:image" content="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1528342168360.jpg">
 
 
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/06/SpringBoot/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/06/SpringBoot（一）：项目构建/"/>
 
 
 
 
 
-  <title>SpringBoot | J.O.E</title>
+  <title>SpringBoot（一）：项目构建 | J.O.E</title>
   
 
 
@@ -300,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/SpringBoot/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/SpringBoot（一）：项目构建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JNK Dog">
@@ -317,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SpringBoot</h1>
+          <h1 class="post-title" itemprop="name headline">SpringBoot（一）：项目构建</h1>
         
 
         <div class="post-meta">
@@ -370,8 +370,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/06/SpringBoot/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/06/SpringBoot/" itemprop="commentCount"></span>
+                <a href="/2018/06/06/SpringBoot（一）：项目构建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/06/SpringBoot（一）：项目构建/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -379,7 +379,7 @@
 
           
           
-             <span id="/2018/06/06/SpringBoot/" class="leancloud_visitors" data-flag-title="SpringBoot">
+             <span id="/2018/06/06/SpringBoot（一）：项目构建/" class="leancloud_visitors" data-flag-title="SpringBoot（一）：项目构建">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -409,7 +409,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  721
+                  1,521
                 </span>
               
 
@@ -425,7 +425,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  7
                 </span>
               
             </div>
@@ -457,21 +457,27 @@
 <p>此处可以勾选所需要的一些组件，web按钮必须勾选，其它组件可以自由选择，例如Mysql，热部署之类的，在此处勾选之后，项目会自动下载相关的Jar包，当然也可以后期在pom.xml中自行添加。勾选之后点击Next。</p>
 <p><img src="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1528540719069.png" alt=""></p>
 <p>点击Finish完成，<font>当新项目创建完成后，右下角可能会出现一个弹框，选择靠右那个选项，会自动下载jar包。</font></p>
-<h2 id="关于SpringBoot的一些配置注解"><a href="#关于SpringBoot的一些配置注解" class="headerlink" title="关于SpringBoot的一些配置注解"></a>关于SpringBoot的一些配置注解</h2><ul>
+<h2 id="关于SpringBoot入口的一些注解"><a href="#关于SpringBoot入口的一些注解" class="headerlink" title="关于SpringBoot入口的一些注解"></a>关于SpringBoot入口的一些注解</h2><ul>
 <li>@<strong>SpringBootApplication</strong>：这个注解所标明的类为SpringBoot程序的入口，通过运行这个类就可以启动SpringBoot应用（<font color="red">以下这些配置全是在@SpringBootApplication中引用的，对外暴露的注解其实只有@SpringBootApplication这个注解</font>）。</li>
-<li>@<strong>SpringBootConfiguration</strong>：它能够声明一个类是SpringBoot的配置类。<ul>
-<li>@<strong>Configuration</strong>：这个注解能够声明一个类是配置类。</li>
+<li>@<strong>SpringBootConfiguration</strong>：声明一个类是SpringBoot的配置类。<ul>
+<li>@<strong>Configuration</strong>：声明一个类是配置类。</li>
 </ul>
 </li>
-<li>@<strong>EnableAutoConfiguration</strong>：这个注解能够开启自动配置功能。<ul>
-<li>@<strong>AutoConfigurationPackage</strong> ：这个注解能够自动配置包。</li>
-<li>@<strong>Import</strong>(｛Registrar.class｝)：这个注解在Spring零碎知识收集中有提到，这里通过AutoConfigurationPackages.Registrar.class中的<font color="red">registerBeanDefinitions</font>方法，能够将主配置类（也就是被@<strong>SpringBootApplication</strong>标注的类）的所在包以及子包里所有的组件扫描到Springr容器中。</li>
+<li>@<strong>EnableAutoConfiguration</strong>：依靠注解的内部实现其能够完成自动配置的功能，将符合自动配置的条件引入到IOC容器中。<ul>
+<li>@<strong>AutoConfigurationPackage</strong> ：自动配置包。</li>
+<li>@<strong>Import</strong>(｛Registrar.class｝)：这个注解在Spring零碎知识收集中有提到，这里通过AutoConfigurationPackages.Registrar.class中的<font color="red">registerBeanDefinitions</font>方法，能够将主配置类（也就是被@<strong>SpringBootApplication</strong>标注的类）的所在包以及子包里所有的组件扫描到Spring容器中。</li>
 <li>@<strong>Import</strong>(｛AutoConfigurationImporSelector.class｝)：这个注解通过AutoConfigurationImportSelector中的<font color="red">selectImports</font>方法，可以自动导入许多配置类。</li>
 </ul>
 </li>
+<li><strong>@ComponentScan</strong>：开启组件扫描</li>
 </ul>
-<h2 id="关于SpringBoot的配置文件"><a href="#关于SpringBoot的配置文件" class="headerlink" title="关于SpringBoot的配置文件"></a>关于SpringBoot的配置文件</h2><p>SpringBoot中主要使用两种配置文件：属性文件以及yml文件（xml文件也可以使用）。</p>
+<h2 id="关于SpringBoot的配置文件"><a href="#关于SpringBoot的配置文件" class="headerlink" title="关于SpringBoot的配置文件"></a>关于SpringBoot的配置文件</h2><h4 id="配置文件的几种形式"><a href="#配置文件的几种形式" class="headerlink" title="配置文件的几种形式"></a>配置文件的几种形式</h4><p>SpringBoot中主要使用两种配置文件：属性文件以及yml文件（xml文件也可以使用）。</p>
 <p>属性文件的使用方式和之前一样，采用key=value的形式。</p>
+<p>然后在变量上使用<code>@Value(&quot;${key}&quot;)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">server.tomcat.uri-encoding=UTF-<span class="number">8</span></span><br><span class="line">spring.http.encoding.charset=UTF-<span class="number">8</span></span><br><span class="line">spring.http.encoding.enabled=<span class="keyword">true</span></span><br><span class="line">spring.http.encoding.force=<span class="keyword">true</span></span><br><span class="line">spring.messages.encoding=UTF-<span class="number">8</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当属性文件中的配置内容有中文时，可能会出现乱码，我们可以先在配置文件里添加上面的代码，然后在IntelliJ IDEA中依次点击File -&gt; Settings -&gt; Editor -&gt; File Encodings   将Properties Files (*.properties)下的Default encoding for properties files设置为UTF-8，将Transparent native-to-ascii conversion前的勾选上。 </p>
+</blockquote>
 <p>yml配置文件有固定的语法</p>
 <ul>
 <li><p>基本语法，key:(空格)value。yml中以空格的缩进来控制层级关系，左对齐的一列数据，都是同一个等级的。同时区分大小写</p>
@@ -493,6 +499,10 @@
 </ul>
 </li>
 </ul>
+<h2 id="日志配置"><a href="#日志配置" class="headerlink" title="日志配置"></a>日志配置</h2><p>如果我们在maven中添加了spring-boot-starter-logging依赖</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>那么Spring Boot 将会自动使用logback作为日志框架，我们只需要创建一个logback-spring.xml配置文件即可。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;configuration  scan=<span class="string">"true"</span> scanPeriod=<span class="string">"60 seconds"</span> debug=<span class="string">"false"</span>&gt;</span><br><span class="line">    &lt;contextName&gt;logback&lt;/contextName&gt;</span><br><span class="line">    &lt;property name=<span class="string">"log.path"</span> value=<span class="string">"./logs"</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 输出到控制台 --&gt;</span><br><span class="line">    &lt;appender name=<span class="string">"STDOUT"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;%d&#123;HH:mm:ss.SSS&#125; %contextName [%thread] %highlight(%-5level) %logger&#123;36&#125; - %highlight%msg%n&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 彩色日志格式 --&gt;</span><br><span class="line">    &lt;property name=<span class="string">"log.pattern.color"</span> value=<span class="string">"$&#123;CONSOLE_LOG_PATTERN:-%clr(%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125;)&#123;faint&#125; %clr($&#123;LOG_LEVEL_PATTERN:-%5p&#125;) %clr($&#123;PID:- &#125;)&#123;magenta&#125; %clr(---)&#123;faint&#125; %clr([%22.22t])&#123;faint&#125; %clr(%-40.40logger&#123;39&#125;)&#123;cyan&#125; %clr(:)&#123;faint&#125; %m%n$&#123;LOG_EXCEPTION_CONVERSION_WORD:-%wEx&#125;&#125;"</span> /&gt;</span><br><span class="line">    &lt;!-- 彩色日志依赖的渲染类 --&gt;</span><br><span class="line">    &lt;conversionRule conversionWord=<span class="string">"clr"</span> converterClass=<span class="string">"org.springframework.boot.logging.logback.ColorConverter"</span> /&gt;</span><br><span class="line">    &lt;conversionRule conversionWord=<span class="string">"wex"</span> converterClass=<span class="string">"org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"</span> /&gt;</span><br><span class="line">    &lt;conversionRule conversionWord=<span class="string">"wEx"</span> converterClass=<span class="string">"org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"</span> /&gt;</span><br><span class="line">    &lt;!-- 输出到控制台 --&gt;</span><br><span class="line">    &lt;appender name=<span class="string">"STDOUT_COLOR"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;$&#123;log.pattern.color&#125;&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 错误日志 --&gt;</span><br><span class="line">    &lt;appender name=<span class="string">"ERROR"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"ch.qos.logback.core.rolling.RollingFileAppender"</span>&gt;</span><br><span class="line">        &lt;rollingPolicy <span class="class"><span class="keyword">class</span></span>=<span class="string">"ch.qos.logback.core.rolling.TimeBasedRollingPolicy"</span>&gt;</span><br><span class="line">            &lt;!-- 按天生成文件 --&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;log.path&#125;/error/logback-error-%d&#123;yyyy-MM-dd&#125;.log&lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;!-- 最多保存<span class="number">60</span>天内的日志 --&gt;</span><br><span class="line">            &lt;maxHistory&gt;60&lt;/maxHistory&gt;</span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;%d&#123;HH:mm:ss.SSS&#125; %contextName [%thread] %-5level %logger&#123;36&#125; - %msg%n&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">        &lt;!-- 只打印错误日志 --&gt;</span><br><span class="line">        &lt;filter <span class="class"><span class="keyword">class</span></span>=<span class="string">"ch.qos.logback.classic.filter.LevelFilter"</span>&gt;</span><br><span class="line">            &lt;level&gt;ERROR&lt;/level&gt;</span><br><span class="line">            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;</span><br><span class="line">            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">        &lt;/filter&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--访问日志--&gt;</span><br><span class="line">    &lt;appender name=<span class="string">"ACCESS"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"ch.qos.logback.core.rolling.RollingFileAppender"</span>&gt;</span><br><span class="line">        &lt;rollingPolicy <span class="class"><span class="keyword">class</span></span>=<span class="string">"ch.qos.logback.core.rolling.TimeBasedRollingPolicy"</span>&gt;</span><br><span class="line">            &lt;!-- 按天生成文件 --&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;log.path&#125;/access/logback-access-%d&#123;yyyy-MM-dd&#125;.log&lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;!-- 日志最大的历史 <span class="number">60</span>天 --&gt;</span><br><span class="line">            &lt;maxHistory&gt;60&lt;/maxHistory&gt;</span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;%d&#123;HH:mm:ss.SSS&#125; %contextName [%thread] %-5level %logger&#123;36&#125; - %msg%n&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- info日志 --&gt;</span><br><span class="line">    &lt;appender name=<span class="string">"INFO"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"ch.qos.logback.core.rolling.RollingFileAppender"</span>&gt;</span><br><span class="line">        &lt;rollingPolicy <span class="class"><span class="keyword">class</span></span>=<span class="string">"ch.qos.logback.core.rolling.TimeBasedRollingPolicy"</span>&gt;</span><br><span class="line">            &lt;!-- 按天生成 --&gt;</span><br><span class="line">            &lt;fileNamePattern&gt;$&#123;log.path&#125;/info/logback-info-%d&#123;yyyy-MM-dd&#125;.log&lt;/fileNamePattern&gt;</span><br><span class="line">            &lt;!-- 日志最大的历史 <span class="number">60</span>天 --&gt;</span><br><span class="line">            &lt;maxHistory&gt;60&lt;/maxHistory&gt;</span><br><span class="line">        &lt;/rollingPolicy&gt;</span><br><span class="line">        &lt;encoder&gt;</span><br><span class="line">            &lt;pattern&gt;%d&#123;HH:mm:ss.SSS&#125; %contextName [%thread] %-5level %logger&#123;36&#125; - %msg%n&lt;/pattern&gt;</span><br><span class="line">        &lt;/encoder&gt;</span><br><span class="line">        &lt;!-- 只打印INFO日志 --&gt;</span><br><span class="line">        &lt;filter <span class="class"><span class="keyword">class</span></span>=<span class="string">"ch.qos.logback.classic.filter.LevelFilter"</span>&gt;</span><br><span class="line">            &lt;level&gt;INFO&lt;/level&gt;</span><br><span class="line">            &lt;onMatch&gt;ACCEPT&lt;/onMatch&gt;</span><br><span class="line">            &lt;onMismatch&gt;DENY&lt;/onMismatch&gt;</span><br><span class="line">        &lt;/filter&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;!--日志打印的包的范围 --&gt;</span><br><span class="line">    &lt;logger name=<span class="string">"com.zbrx.speed"</span> additivity=<span class="string">"false"</span>&gt;</span><br><span class="line">        &lt;level value=<span class="string">"DEBUG"</span> /&gt;</span><br><span class="line">        &lt;appender-ref ref=<span class="string">"STDOUT"</span>/&gt;</span><br><span class="line">        &lt;appender-ref ref=<span class="string">"ERROR"</span>/&gt;</span><br><span class="line">        &lt;appender-ref ref=<span class="string">"ACCESS"</span>/&gt;</span><br><span class="line">        &lt;appender-ref ref=<span class="string">"INFO"</span> /&gt;</span><br><span class="line">    &lt;/logger&gt;</span><br><span class="line">    &lt;!-- mybatis输出sql --&gt;</span><br><span class="line">    &lt;logger name="com.zbrx.speed.dao" level="DEBUG"&gt;&lt;/logger&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 控制台打印日志 --&gt;</span><br><span class="line">    &lt;root level=<span class="string">"INFO"</span>&gt;</span><br><span class="line">        &lt;appender-ref ref=<span class="string">"STDOUT_COLOR"</span> /&gt;</span><br><span class="line">    &lt;/root&gt;</span><br><span class="line"></span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -619,7 +629,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -702,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在IDE中使用Spring-Initializer快速构建Spring-Boot项目"><span class="nav-number">1.</span> <span class="nav-text">在IDE中使用Spring Initializer快速构建Spring Boot项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于SpringBoot的一些配置注解"><span class="nav-number">2.</span> <span class="nav-text">关于SpringBoot的一些配置注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于SpringBoot的配置文件"><span class="nav-number">3.</span> <span class="nav-text">关于SpringBoot的配置文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#在IDE中使用Spring-Initializer快速构建Spring-Boot项目"><span class="nav-number">1.</span> <span class="nav-text">在IDE中使用Spring Initializer快速构建Spring Boot项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于SpringBoot入口的一些注解"><span class="nav-number">2.</span> <span class="nav-text">关于SpringBoot入口的一些注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于SpringBoot的配置文件"><span class="nav-number">3.</span> <span class="nav-text">关于SpringBoot的配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件的几种形式"><span class="nav-number">3.0.1.</span> <span class="nav-text">配置文件的几种形式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志配置"><span class="nav-number">4.</span> <span class="nav-text">日志配置</span></a></li></ol></div>
             
 
           </div>
@@ -736,7 +746,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">10.3k</span>
+    <span title="Site words total count">12.2k</span>
   
 </div>
 
