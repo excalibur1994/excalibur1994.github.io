@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="J.O.E">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1528193012116.png">
-<meta property="og:updated_time" content="2018-06-09T10:10:43.436Z">
+<meta property="og:updated_time" content="2018-07-22T13:13:57.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ehcache食用教程">
 <meta name="twitter:image" content="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1528193012116.png">
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,584
+                  1,757
                 </span>
               
 
@@ -421,7 +421,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -444,9 +444,9 @@
       
         <p><img src="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1528193012116.png" alt=""></p>
 <a id="more"></a>
-<h2 id="为什么使用Eacache"><a href="#为什么使用Eacache" class="headerlink" title="为什么使用Eacache"></a>为什么使用Eacache</h2><p>为了提高系统的运行效率，引入Ehcache可以减少对数据库的访问</p>
+<h2 id="为什么使用Eacache"><a href="#为什么使用Eacache" class="headerlink" title="为什么使用Eacache"></a>为什么使用Eacache</h2><p>为了使你的程序用起来感觉很快快啊，引入Ehcache可以减少对数据库的访问。</p>
 <h2 id="Eacache与Redis的取舍问题"><a href="#Eacache与Redis的取舍问题" class="headerlink" title="Eacache与Redis的取舍问题"></a>Eacache与Redis的取舍问题</h2><p>ehcache直接在jvm虚拟机中缓存，速度快，效率高；但是缓存共享麻烦，集群分布式应用不方便。<br>redis是通过socket访问到缓存服务，效率比ecache低，比数据库要快很多，处理集群和分布式缓存方便，有成熟的方案。</p>
-<p>如果是单个应用或者对缓存访问要求很高的应用，用ehcache。<br>如果是大型系统，存在缓存共享、分布式部署、缓存内容很大的，建议用redis。</p>
+<p>如果是单个应用或者对缓存访问要求很高的应用，用ehcache。<br>如果是大型系统，存在缓存共享、分布式部署、缓存内容很大的，建议用redis。（根本没做过大型项目啊/摊手）</p>
 <h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><font color="red">Encache所需要的jar包（版本可以自行更换）</font>
 
 <ul>
@@ -553,6 +553,31 @@
 </tr>
 </tbody>
 </table>
+<h2 id="在Spring-Boot中使用"><a href="#在Spring-Boot中使用" class="headerlink" title="在Spring Boot中使用"></a>在Spring Boot中使用</h2><h4 id="关于SpringBoot-缓存"><a href="#关于SpringBoot-缓存" class="headerlink" title="关于SpringBoot 缓存"></a>关于SpringBoot 缓存</h4><p>在 Spring Boot中，通过<strong>@EnableCaching</strong>注解自动化配置合适的缓存管理器（CacheManager），Spring Boot根据下面的优先顺序去侦测缓存提供者： </p>
+<ul>
+<li>Generic </li>
+<li>JCache (JSR-107) </li>
+<li>EhCache 2.x </li>
+<li>Hazelcast </li>
+<li>Infinispan </li>
+<li>Redis </li>
+<li>Guava </li>
+<li>Simple</li>
+</ul>
+<h4 id="如何使用-1"><a href="#如何使用-1" class="headerlink" title="如何使用"></a>如何使用</h4><p>首先在pom文件中添加依赖</p>
+<pre><code>&lt;!--开启 cache 缓存--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-cache&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;!-- ehcache --&gt;
+  &lt;dependency&gt;
+      &lt;groupId&gt;net.sf.ehcache&lt;/groupId&gt;
+      &lt;artifactId&gt;ehcache&lt;/artifactId&gt;
+      &lt;version&gt;2.10.3&lt;/version&gt;
+  &lt;/dependency&gt;
+</code></pre><p>然后创建一个encache.xml，和上面一样。</p>
+<p>最后在主类上添加<strong>@EnableCaching</strong>注解，再在想要添加缓存的方法上狂加注解即可。</p>
 <hr>
 
 
@@ -681,7 +706,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -764,7 +789,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用Eacache"><span class="nav-number">1.</span> <span class="nav-text">为什么使用Eacache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eacache与Redis的取舍问题"><span class="nav-number">2.</span> <span class="nav-text">Eacache与Redis的取舍问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用"><span class="nav-number">3.</span> <span class="nav-text">如何使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用Eacache"><span class="nav-number">1.</span> <span class="nav-text">为什么使用Eacache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eacache与Redis的取舍问题"><span class="nav-number">2.</span> <span class="nav-text">Eacache与Redis的取舍问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用"><span class="nav-number">3.</span> <span class="nav-text">如何使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Spring-Boot中使用"><span class="nav-number">4.</span> <span class="nav-text">在Spring Boot中使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于SpringBoot-缓存"><span class="nav-number">4.0.1.</span> <span class="nav-text">关于SpringBoot 缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何使用-1"><span class="nav-number">4.0.2.</span> <span class="nav-text">如何使用</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -798,7 +823,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">12.2k</span>
+    <span title="Site words total count">13.8k</span>
   
 </div>
 

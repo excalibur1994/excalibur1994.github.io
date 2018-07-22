@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="此篇博客参考书籍《研磨设计模式》,相比GoF的设计模式，此书更加通俗易懂，适合作为设计模式的入门书籍。">
+<meta name="description" content="此篇博客参考书籍《研磨设计模式》,书的封面太丑了，用言叶之庭当封面吧，相比GoF的设计模式，此书更加通俗易懂，适合作为设计模式的入门书籍。">
 <meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式：简单工厂">
 <meta property="og:url" content="http://yoursite.com/2018/07/10/设计模式：简单工厂/index.html">
 <meta property="og:site_name" content="J.O.E">
-<meta property="og:description" content="此篇博客参考书籍《研磨设计模式》,相比GoF的设计模式，此书更加通俗易懂，适合作为设计模式的入门书籍。">
+<meta property="og:description" content="此篇博客参考书籍《研磨设计模式》,书的封面太丑了，用言叶之庭当封面吧，相比GoF的设计模式，此书更加通俗易懂，适合作为设计模式的入门书籍。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1531295882995.png">
-<meta property="og:updated_time" content="2018-07-11T08:03:20.178Z">
+<meta property="og:updated_time" content="2018-07-20T03:19:21.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式：简单工厂">
-<meta name="twitter:description" content="此篇博客参考书籍《研磨设计模式》,相比GoF的设计模式，此书更加通俗易懂，适合作为设计模式的入门书籍。">
+<meta name="twitter:description" content="此篇博客参考书籍《研磨设计模式》,书的封面太丑了，用言叶之庭当封面吧，相比GoF的设计模式，此书更加通俗易懂，适合作为设计模式的入门书籍。">
 <meta name="twitter:image" content="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1531295882995.png">
 
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,482
+                  1,518
                 </span>
               
 
@@ -446,15 +446,15 @@
 
       
         <p><img src="http://bokephoto-1256720954.cos.ap-beijing.myqcloud.com/1531295882995.png" alt=""></p>
-<p>此篇博客参考书籍《研磨设计模式》,相比GoF的设计模式，此书更加通俗易懂，适合作为设计模式的入门书籍。</p>
+<p>此篇博客参考书籍《研磨设计模式》,书的封面太丑了，用言叶之庭当封面吧，相比GoF的设计模式，此书更加通俗易懂，适合作为设计模式的入门书籍。</p>
 <a id="more"></a>
-<h2 id="场景问题"><a href="#场景问题" class="headerlink" title="场景问题"></a>场景问题</h2><p>在Java应用开发中，我们应该遵守<font color="red">“面向接口编程”</font>的原则，而接口的思想浓缩成一句话就是<font color="red">“封装隔离”</font>，此处的封装指的是<font color="red">“对被隔离体的行为的封装”</font>，而隔离指的是<font color="red">外部的调用和内部实现</font>，外部的调用只能通过接口来进行调用，而不知道内部的具体实现。</p>
-<p>在我们学习Java的基础知识时，有时会遇到如下类型的代码：</p>
+<h2 id="场景问题"><a href="#场景问题" class="headerlink" title="场景问题"></a>场景问题</h2><p>在Java应用开发中，我们应该遵守<font color="red">“面向接口编程”</font>的原则，而接口的思想浓缩成一句话就是<font color="red">“封装隔离”</font>，此处的封装指的是<font color="red">“对被隔离体的行为的封装”</font>，而隔离指的是<font color="red">外部的调用和内部实现</font>，外部的调用只能通过接口来进行调用，而不知道内部的具体实现。（书上的原话，基本是照抄的，吼吼吼）</p>
+<p>在刚学JavaSE的时候，有时会遇到如下类型的代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Api</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String s)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个实现类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Impl</span> <span class="keyword">implements</span> <span class="title">Api</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"let's paly ♂ a ♂ game："</span>+s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端：测试使用Api接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Api api = <span class="keyword">new</span> Impl();</span><br><span class="line">        api.test(<span class="string">"哲学♂ 冲浪板！！！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在客户端中有这样一句代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Api api = <span class="keyword">new</span> Impl()</span><br></pre></td></tr></table></figure>
 <p>你会发现客户端在调用时，它不但知道了接口，同时还知道了具体的实现是Impl，然而接口的思想是隔离封装，客户端不应该知道实现类是Impl，但是如果将<code>new Impl()</code>去掉，Api的接口对象又无法获得。</p>
-<p>如果将这个问题描述一下就是：在Java编程中，需要只知接口不知实现的情况，该怎么办？</p>
+<p>如果将这个问题描述一下就是：在Java编程中，需要只知接口不知实现的情况，该怎么办？（为什么有这样的需要/滑稽）</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>用来解决上述问题的一个合理解决方案就是简单工厂，关于简单工厂的定义是这样的：<font color="red">提供一个创建对象实例的功能，而无需关心其具体实现。被创建实例的类型可以是接口，抽象类，也可以是具体的类<font></font></font></p>
 <h4 id="解决问题的思路"><a href="#解决问题的思路" class="headerlink" title="解决问题的思路"></a>解决问题的思路</h4><p>虽然不能让模块外部知道模块内部的具体实现，但是模块内部是可以知道的，那么干脆在模块内部新建一个类，在这个类里面来创建接口，然后把创建好的接口返回给客户端。</p>
 <h4 id="使用简单工厂重写示例"><a href="#使用简单工厂重写示例" class="headerlink" title="使用简单工厂重写示例"></a>使用简单工厂重写示例</h4><p>下面我们用简单工厂的模式重写实现一下刚才的代码</p>
@@ -600,7 +600,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -717,7 +717,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">12.2k</span>
+    <span title="Site words total count">13.8k</span>
   
 </div>
 
